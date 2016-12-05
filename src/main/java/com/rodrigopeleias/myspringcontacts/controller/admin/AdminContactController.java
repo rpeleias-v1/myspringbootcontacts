@@ -47,14 +47,14 @@ public class AdminContactController {
         return "admin/contacts/contactForm";
     }
 
-    @RequestMapping(value = "/admin/contact/save", method = RequestMethod.POST)
+    @RequestMapping(value = "/admin/contacts/save", method = RequestMethod.POST)
     public String save(@Valid Contact contact, BindingResult result, Model model) {
         if (result.hasErrors()) {
             model.addAttribute("ufs", UF.values());
             return "admin/contacts/create";
         } else {
             Contact savedContact = contactService.save(contact);
-            return "redirect:/admin/contact/" + savedContact.getId();
+            return "redirect:/admin/contacts/" + savedContact.getId();
         }
     }
 
