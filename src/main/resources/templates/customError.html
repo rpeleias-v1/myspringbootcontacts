@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      lang="en"
+      layout:decorator="layouts/main">
+<head>
+    <title>Error Handler</title>
+</head>
+
+
+<div layout:fragment="content">
+
+    <div class="page-header">
+        <h2>Error</h2>
+    </div>
+
+    <table class="table table-stripped">
+        <thead>
+            <tr>
+                <td>Key</td>
+                <td>Value</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Timestamp</td>
+                <td th:text="${timestamp}"></td>
+            </tr>
+            <tr>
+                <td>Status</td>
+                <td th:text="${status}"></td>
+            </tr>
+            <tr>
+                <td>Message</td>
+                <td th:text="${message}"></td>
+            </tr>
+            <tr>
+                <td>Error</td>
+                <td th:text="${error}"></td>
+            </tr>
+            <tr>
+                <td>Path</td>
+                <td th:text="${path}"></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+</html>

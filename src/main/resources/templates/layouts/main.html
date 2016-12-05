@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      lang="en"
+      xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>Muy Spring Contact Main Layout</title>
+
+    <link rel="stylesheet" th:href="@{/lib/bootstrap/dist/css/bootstrap.min.css}"/>
+    <link rel="stylesheet" th:href="@{/css/styles.css}"/>
+
+    <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'/>
+    <link href='https://fonts.googleapis.com/css?family=Exo' rel='stylesheet' type='text/css'/>
+
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="/">My Spring Contact</a>
+        </div>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+                <li th:class="${controllerName == 'Home'} ? 'active'"><a href="/">Home</a></li>
+                <li class="dropdown" th:class="${controllerName == 'Contacts'} ? 'dropdown active' : 'dropdown'">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                       aria-expanded="false">Posts <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="/contacts/list">List</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown"
+                    th:class="${controllerName.startsWith('Admin')} ? 'dropdown active' : 'dropdown'">
+                    <!-- sec:authorize="hasRole('ROLE_ADMIN')"> -->
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                       aria-expanded="false">Admin <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="/admin/contacts">Manage Contacts</a></li>
+                    </ul>
+                </li>
+            </ul>
+            <div class="navbar-text navbar-right">
+                <!--Welcome <span sec:authentication="name">Guest</span> |
+                <form sec:authorize="isAuthenticated()" id="frmlogout" th:action="@{/logout}" method="post"
+                      class="form-inline">
+                    <a href="javascript:{}" onclick="document.getElementById('frmlogout').submit(); return false;">Logout</a>
+                </form>
+                <a sec:authorize="!isAuthenticated()" th:href="@{/login}"> Login</a> -->
+            </div>
+        </div>
+    </div>
+</nav>
+
+<div class="container">
+    <div layout:fragment="content">
+    </div>
+</div>
+<script th:src="@{/lib/jquery/dist/jquery.min.js}"></script>
+<script th:src="@{/lib/bootstrap/dist/js/bootstrap.min.js}"></script>
+</body>
+</html>

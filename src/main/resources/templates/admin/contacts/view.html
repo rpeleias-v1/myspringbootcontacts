@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      lang="en"
+      layout:decorator="layouts/main">
+<head>
+    <title>View Contact</title>
+</head>
+
+
+<div layout:fragment="content">
+
+    <div class="page-header">
+        <h2>View contact</h2>
+    </div>
+
+    <form>
+        <div class="form-group col-sm-6">
+            <label class="control-label">Name </label>
+            <p th:text="${contact.name}">Name</p>
+        </div>
+        <div class="form-group col-sm-6">
+            <label class="control-label">E-mail </label>
+            <p th:text="${contact.email}">Email</p>
+        </div>
+        <div class="form-group col-sm-6">
+            <label class="control-label">Home Phone</label>
+            <p th:text="${contact.homePhone}">Phone</p>
+        </div>
+        <div class="form-group col-sm-6">
+            <label class="control-label">Mobile Phone</label>
+            <p th:text="${contact.mobilePhone}">Mobile</p>
+        </div>
+        <div class="form-group col-sm-12">
+            <label class="control-label">Address </label>
+            <p th:text="${contact.address.name}">Address Name</p>
+        </div>
+        <div class="form-group col-sm-3">
+            <label class="control-label">Number</label>
+            <p th:text="${contact.address.number}">Number</p>
+        </div>
+        <div class="form-group col-sm-3">
+            <label class="control-label">Complement</label>
+            <p th:text="${contact.address.complement}">Complement</p>
+        </div>
+        <div class="form-group col-sm-3">
+            <label class="control-label">Neighborhood </label>
+            <p th:text="${contact.address.neighborhood}">Neighborhood</p>
+        </div>
+        <div class="form-group col-sm-3">
+            <label class="control-label">Zip Code </label>
+            <p th:text="${contact.address.zipCode}">Zip Code</p>
+        </div>
+        <div class="form-group col-sm-6">
+            <label class="control-label">City </label>
+            <p th:text="${contact.address.city}">City</p>
+        </div>
+        <div class="form-group col-sm-2">
+            <label class="control-label">UF </label>
+            <p th:text="${contact.address.uf}">Uf</p>
+        </div>
+    </form>
+
+    <div class="col-sm-12">
+        <a th:href="@{/admin/contacts/}">Back To Contacts List</a>
+        <br/><br/><br/>
+    </div>
+</div>
+
+</html>
